@@ -5,14 +5,16 @@
 <ul>
   {{#each burgers}}
   {{#unless this.devoured}}
-  {{!-- <li>
-    {{this.burger_name}}
-    <form action="/api/burgers/?_method=PUT" method="POST">
-      <input type="hidden" name="completed" value="false">
+  <li class="burger-list">{{this.burger_name}}
+              <button type="button" class="btn btn-primary devoured-btn" data-id="{{id}}">Devour it!</button>
+            </li>
+  {{!-- {{> burger-status devoured=true}}  --}}
+  {{!-- <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+      <input type="hidden" name="completed" value="true">
       <button type="submit">Eat me!</button>
-    </form>
-  </li> --}}
-  {{> /burger-status devoured=true}}
+    </form> --}}
+  
+  
   {{/unless}}
   {{/each}}
 </ul>
@@ -22,14 +24,8 @@
 <ul>
   {{#each burgers}}
   {{#if this.devoured}}
-  {{!-- <li>
-     {{this.burger_name}}
-  <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
-      <input type="hidden" name="completed" value="true">
-      <button type="submit">Eat me!</button>
-    </form>
-  </li> --}}
-  {{> /burger-status devoured=false}}
+<li class="burger-list-eaten">{{this.burger_name}}
+            </li>
   {{/if}}
   {{/each}}
 </ul>
